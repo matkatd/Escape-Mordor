@@ -1,0 +1,18 @@
+[
+  {
+    "name": "name",
+    "description": "i am a description",
+    "items": [
+      {
+        "name": "name",
+        "actions": ["a", "b", "c"]
+      },
+      {
+        "name": "name2",
+        "actions": ["a", "b", "c"]
+      }
+    ],
+    "next-room": 1,
+    "previous-room": 0
+  }
+]
