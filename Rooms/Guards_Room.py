@@ -16,3 +16,4 @@ class Guards_Room(Room):
 
     def start_room(self):
         print(self.description)
+        print(self.items)
