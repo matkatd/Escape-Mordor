@@ -3,7 +3,7 @@ from .Room import Room
 
 class Cell_Start(Room):
 
-    def __init__(self):
+    def __init__(self, player):
         super().__init__("Cell Start", "You find yourself in a jail cell...",
                          [{
                              "name": "spooky scary skeleton",
@@ -11,7 +11,7 @@ class Cell_Start(Room):
                          }, {
                              "name": "torch on the wall",
                              "actions": ["inspect", "pull"]
-                         }], 0, 1)
+                         }], 0, 1, player)
 
     def start_room(self):
         print(self.description)
