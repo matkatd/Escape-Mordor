@@ -1,4 +1,4 @@
-import Room
+from .Room import Room
 
 
 class Cell_Two(Room):

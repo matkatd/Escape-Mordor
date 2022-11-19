@@ -1,4 +1,4 @@
-import Room
+from .Room import Room
 
 
 class Guards_Room(Room):
