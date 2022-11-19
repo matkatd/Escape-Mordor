@@ -1,11 +1,12 @@
 class Room:
 
-    def __init__(self, name, description, items, next, previous):
+    def __init__(self, name, description, items, next, previous, player):
         self.name = name
         self.description = description
         self.items = items
         self.next = next
         self.previous = previous
+        self.player = player
 
     def listItems(self):
         print("Notable items in the room include:")

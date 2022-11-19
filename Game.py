@@ -1,17 +1,25 @@
 from Rooms.Cell_Start import Cell_Start
 
+import utils
+import POPO.Player as Player
 
 class Game:
 
     def run(self):
-        print("THE DUNGEONS OF MORDOR\n\u00a92022 Mordor's IT Department\n\nWelcome to the dungeons of Mordor adventurer!")
-        print("Press 'Y' to start, any other key to quit")
-        key = input()
-        if key == 'Y':
+        utils.print_line_of_char("-")
+        utils.print_centered_text("THE DUNGEONS OF MORDOR")
+        utils.print_centered_text("\u00a92022 Mordor's IT Department")
+        utils.print_line_of_char("-")
+        print("Welcome to the dungeons of Mordor adventurer, are you ready for what awaits?")
+        print("(Enter your name to start, press enter to quit)")
+        name = input()
+        if len(name) > 0:
+            player = Player()
+            player.setName(name)
             start = Cell_Start()
             start.start_room()
         else:
-            print("Goodbye!")
+            print("Farewell!")
             return
 
 
