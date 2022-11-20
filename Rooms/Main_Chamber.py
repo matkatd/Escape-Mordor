@@ -6,11 +6,17 @@ class Main_Chamber(Room):
     def __init__(self):
         super().__init__()
         [{
-            "name": "spooky scary skeleton",
-            "actions": ["action1"]
+            "name": "Guard Room Door",
+            "actions": ["open"]
         }, {
-            "name": "torch on the wall",
-            "actions": ["inspect", "pull"]
+            "name": "Armory Door",
+            "actions": ["open"]
+        }, {
+            "name": "Exit Door",
+            "actions": ["open"]
+        }, {
+            "name": "Cell Block Door",
+            "actions": ["open"]
         }]
         self.description = "You find yourself in a jail cell..."
 
