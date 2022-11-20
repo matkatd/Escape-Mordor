@@ -4,8 +4,8 @@ import POPO.Player as player
 
 class Cell_Start(Room):
 
-    def __init__(self):
-        super().__init__("Your Cell", "You find yourself in a jail cell...",
+    def __init__(self, player):
+        super().__init__(f"{player.getName()}'s Cell", "You find yourself in a jail cell...",
                          [{
                              "name": "spooky scary skeleton",
                              "actions": ["inspect","greet"]
@@ -25,4 +25,4 @@ class Cell_Start(Room):
         utils.print_centered_text(self.name)
         utils.print_line_of_char("#")
         print(self.description)
-        self.listItems
+        self.listItems()
