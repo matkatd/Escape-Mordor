@@ -11,15 +11,6 @@ class Game:
         utils.print_centered_text("THE DUNGEONS OF MORDOR")
         utils.print_centered_text("\u00a92022 Mordor's IT Department")
         utils.print_line_of_char("-")
-<<<<<<< HEAD
-        print("Welcome to the Dungeons of Mordor adventurer! Are you ready for what awaits?")
-        print("(Enter your name to start, press enter to quit)")
-        name = input()
-        if len(name) > 0:
-            # character = Player()
-            # character.setName(name)
-            start = Cell_Start()
-=======
         print(
             "Welcome to the dungeons of Mordor adventurer, are you ready for what awaits?"
         )
@@ -29,7 +20,6 @@ class Game:
             player = Player()
             player.setName(name)
             start = Cell_Start(player)
->>>>>>> ac64ec0c62bc711a8ac3627ba0a89edfabbd8226
             start.start_room()
         else:
             print("Farewell!")
