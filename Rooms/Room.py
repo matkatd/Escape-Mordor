@@ -13,7 +13,7 @@ class Room:
         print("Notable items in the room include:")
         i = 1
         for item in self.items:
-            print(f"{i}: item")
+            print(f"{i}: {item['name']}")
             i += 1
         print("Select the number of the item you would like to interact with:")
 
