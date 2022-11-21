@@ -1,4 +1,5 @@
 from .Room import Room
+from Rooms.Cell_Two import Cell_Two
 import utils
 import POPO.Player as player
 
@@ -11,7 +12,7 @@ class Cell_Start(Room):
                              "actions": ["inspect","greet"]
                          }, {
                              "name": "torch on the wall",
-                             "actions": ["inspect", "pull"]
+                             "actions": ["inspect", "pull torch"]
                          }, {
                              "name": "ye olde flask",
                              "actions": ["inspect", "drink", "get"]
@@ -25,4 +26,16 @@ class Cell_Start(Room):
         utils.print_centered_text(self.name)
         utils.print_line_of_char("#")
         print(self.description)
-        self.listItems()
+        leave = False
+        while leave == False:
+            current_item = self.listItems()
+            current_action = self.listActions()
+            if current_item == "torch on the wall" and current_action == "pull torch":
+                print("A secret passage has apeared!")
+                self.items.append({"name":"secret passage", "actions":["exit"]})
+            if current_item == "secret passage" and current_action == "exit":
+                start = Cell_Two(player)
+                start.start_room()
+            
+                
+

@@ -1,3 +1,4 @@
+import utils
 from .Room import Room
 
 
@@ -24,4 +25,7 @@ class Cell_Two(Room):
         self.description = "You find yourself in another jail cell. It's identical to yours- with two exceptions. On one wall there is a tapestry, and on the floor sleeps another prisoner."
 
     def start_room(self):
+        utils.print_line_of_char("#")
+        utils.print_centered_text(self.name)
+        utils.print_line_of_char("#")
         print(self.description)
