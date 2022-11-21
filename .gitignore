@@ -1,1 +1,3 @@
-*/_pycache__/*
+/__pycache__/*
+/Rooms/__pycache__/*
+/POPO/__pycache__/*
