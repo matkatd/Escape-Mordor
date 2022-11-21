@@ -1,5 +1,6 @@
 import utils
 from .Room import Room
+from Rooms.Hallway import Hallway
 
 
 class Cell_Two(Room):
@@ -30,3 +31,12 @@ class Cell_Two(Room):
         utils.print_centered_text(self.name)
         utils.print_line_of_char("#")
         print(self.description)
+        leave = False
+        while leave == False:
+            current_item = self.listItems()
+            current_action = self.listActions()
+            if current_item == "torch on the wall" and current_action == "pull":
+                print("Nothing happened")
+            if current_item == "sleeping prisoner" and current_action == "wake":
+                start = Hallway(self.player)
+                start.start_room()
