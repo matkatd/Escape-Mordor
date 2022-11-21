@@ -52,7 +52,7 @@ class Cell_Start(Room):
                     print("You begin too feel woozy...")
                     self.items.pop(item_index)
                 if current_action == "get":
-                    print("You got {current_item}")
+                    print(f"You got {current_item}")
                     self.items.pop(item_index)
                     self.player.insertItem(current_item)
             if current_item == "cell door":
