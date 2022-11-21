@@ -1,6 +1,6 @@
 import utils
-from Room import Room
-from Hallway import Hallway
+from .Room import Room
+from .Hallway import Hallway
 
 
 class Cell_Two(Room):
