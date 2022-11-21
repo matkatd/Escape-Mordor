@@ -23,7 +23,7 @@ class Room:
             print("Select the number of the action you would like to take:")
             try: 
                 action_index = int(input())
-                action_count = len(self.items[item_index])
+                action_count = len(self.items[item_index]["actions"])
                 if (action_index > action_count) or (action_index < 0):
                     print(f"Please enter an integer in the desired range: ({0}-{action_count})")
                 elif action_index == 0:
