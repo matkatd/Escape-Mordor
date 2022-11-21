@@ -49,7 +49,7 @@ class Cell_Start(Room):
                 if current_action == "inspect":
                     print("A old flask lies upon a table, the liquid inside is murky and mysterious...")
                 if current_action == "drink":
-                    print("You begin too feel woozy...")
+                    print("You begin to feel woozy...")
                     self.items.pop(item_index)
                 if current_action == "get":
                     print(f"You got {current_item}")

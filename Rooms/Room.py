@@ -12,8 +12,8 @@ class Room:
         self.player = player
 
     def listActions(self, item_index):
-        valid = False
-        while valid == False:
+        valid_b = False
+        while valid_b == False:
             print("You can take the following actions: ")
             x = 1
             print(f"0: nothing")
@@ -21,12 +21,16 @@ class Room:
                 print(f"{x}: {action}")
                 x += 1
             print("Select the number of the action you would like to take:")
-            try:
-                action_index = int(input()) - 1
-                if (action_index > len(self.items[item_index])) or (action_index < 0):
-                    print("Please enter an integer in the desired range")
+            try: 
+                action_index = int(input())
+                action_count = len(self.items[item_index])
+                if (action_index > action_count) or (action_index < 0):
+                    print(f"Please enter an integer in the desired range: ({0}-{action_count})")
+                elif action_index == 0:
+                    return [self.items[item_index]["name"],"nothing",item_index]
                 else:
-                    valid = True
+                    action_index = action_index - 1
+                    valid_b = True
             except:
                 print("Please enter an integer")
         return [
@@ -36,8 +40,8 @@ class Room:
         ]
 
     def listItems(self):
-        valid = False
-        while valid == False:
+        valid_a = False
+        while valid_a == False:
             print("Notable items in the room include:")
             i = 1
             for item in self.items:
@@ -45,11 +49,13 @@ class Room:
                 i += 1
             print("Select the number of the item you would like to interact with:")
             try:
-                item_index = int(input()) - 1
-                if (item_index > len(self.items)) or (item_index < 0):
-                    print("Please enter an integer in the desired range")
+                item_index = int(input())
+                item_count = len(self.items)
+                if (item_index > item_count) or (item_index < 1):
+                    print(f"Please enter an integer in the desired range: ({1}-{item_count})")
                 else:
-                    valid = True
+                    item_index = item_index - 1
+                    valid_a = True
             except:
                 print("Please enter an integer")
         toreturn = self.listActions(item_index)
