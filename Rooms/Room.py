@@ -21,7 +21,8 @@ class Room:
         action_index = int(input()) - 1
         return [
             self.items[item_index]["name"],
-            self.items[item_index]["actions"][action_index]
+            self.items[item_index]["actions"][action_index],
+            item_index
         ]
 
     def listItems(self):

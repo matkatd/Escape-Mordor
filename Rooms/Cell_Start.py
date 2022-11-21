@@ -30,20 +30,26 @@ class Cell_Start(Room):
         print(self.description)
         leave = False
         while leave == False:
-            [current_item, current_action] = self.listItems()
-            if current_item == "ye olde Flask":
-                if current_action == "inspect":
-                    print(
-                        "A old flask lies upon a table, the liquid inside is murky and mysterious..."
-                    )
-                if current_action == "drink":
-                    print("You begin too feel woozy...")
+            [current_item, current_action, item_index] = self.listItems()
             if current_item == "torch on the wall" and current_action == "pull torch":
                 print("A secret passage has apeared!")
                 self.items.append({
                     "name": "secret passage",
                     "actions": ["exit"]
                 })
+            if current_item == "ye olde flask":
+                if current_action == "inspect":
+                    print("A old flask lies upon a table, the liquid inside is murky and mysterious...")
+                if current_action == "drink":
+                    print("You begin too feel woozy...")
+                    self.items.pop(item_index)
+                if current_action == "get":
+                    print("You got {current_item}")
+                    self.items.pop(item_index)
+                    self.player.insertItem(current_item)
+            if current_item == "cell door":
+                if current_action == "open":
+                    print("your cell door is locked")
             if current_item == "secret passage" and current_action == "exit":
                 start = Cell_Two(player)
                 start.start_room()
