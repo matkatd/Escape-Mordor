@@ -9,6 +9,16 @@ class Room:
         self.previous = previous
         self.player = player
 
+    def listActions(self, item_index):
+        print("You can take the following actions: ")
+        x = 1
+        for action in self.items[item_index]["actions"]:
+            print(f"{x}: {action}")
+            x += 1
+        print("Select the number of the action you would like to take:")
+        action_index = int(input())-1
+        return [self.items[item_index]["name"], self.items[item_index]["actions"][action_index]]
+
     def listItems(self):
         print("Notable items in the room include:")
         i = 1
@@ -16,13 +26,6 @@ class Room:
             print(f"{i}: {item['name']}")
             i += 1
         print("Select the number of the item you would like to interact with:")
-        selected_item= input()
-        x = i-1
-        return self.items[x]["name"]
-
-    def listActions(self, item_index):
-        
-        selection = input()
-        
-        return
-        
+        item_index = int(input())-1
+        toreturn =  self.listActions(item_index)
+        return toreturn
