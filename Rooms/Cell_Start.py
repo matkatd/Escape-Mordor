@@ -3,13 +3,15 @@ from Rooms.Cell_Two import Cell_Two
 import utils
 import POPO.Player as player
 
+
 class Cell_Start(Room):
 
     def __init__(self, player):
-        super().__init__(f"{player.getName()}'s Cell", "You find yourself in a jail cell...",
+        super().__init__(f"{player.getName()}'s Cell",
+                         "You find yourself in a jail cell...",
                          [{
                              "name": "spooky scary skeleton",
-                             "actions": ["inspect","greet"]
+                             "actions": ["inspect", "greet"]
                          }, {
                              "name": "torch on the wall",
                              "actions": ["inspect", "pull torch"]
@@ -31,15 +33,17 @@ class Cell_Start(Room):
             [current_item, current_action] = self.listItems()
             if current_item == "ye olde Flask":
                 if current_action == "inspect":
-                    print("A old flask lies upon a table, the liquid inside is murky and mysterious...")
+                    print(
+                        "A old flask lies upon a table, the liquid inside is murky and mysterious..."
+                    )
                 if current_action == "drink":
                     print("You begin too feel woozy...")
             if current_item == "torch on the wall" and current_action == "pull torch":
                 print("A secret passage has apeared!")
-                self.items.append({"name":"secret passage", "actions":["exit"]})
+                self.items.append({
+                    "name": "secret passage",
+                    "actions": ["exit"]
+                })
             if current_item == "secret passage" and current_action == "exit":
                 start = Cell_Two(player)
                 start.start_room()
-            
-                
-
