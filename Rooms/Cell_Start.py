@@ -29,6 +29,11 @@ class Cell_Start(Room):
         leave = False
         while leave == False:
             [current_item, current_action] = self.listItems()
+            if current_item == "ye olde Flask":
+                if current_action == "inspect":
+                    print("A old flask lies upon a table, the liquid inside is murky and mysterious...")
+                if current_action == "drink":
+                    print("You begin too feel woozy...")
             if current_item == "torch on the wall" and current_action == "pull torch":
                 print("A secret passage has apeared!")
                 self.items.append({"name":"secret passage", "actions":["exit"]})
