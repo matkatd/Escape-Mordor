@@ -1,7 +1,8 @@
 import utils
 from .Room import Room
+from .Cell_Start import Cell_Start
 from .Hallway import Hallway
-
+import POPO.Player as player
 
 class Cell_Two(Room):
 
@@ -11,13 +12,13 @@ class Cell_Two(Room):
             "You find yourself in another jail cell. It's identical to yours- with two exceptions. On one wall there is a tapestry, and on the floor sleeps another prisoner.",
             [{
                 "name": "sleeping prisoner",
-                "actions": ["wake"]
+                "actions": ["inspect","wake"]
             }, {
                 "name": "torch on the wall",
                 "actions": ["inspect", "pull"]
             }, {
-                "name": "tapestry",
-                "actions": ["inspect"]
+                "name": "ragged tapestry",
+                "actions": ["inspect", "lift corner"]
             }, {
                 "name": "cell door",
                 "actions": ["open"]
@@ -33,10 +34,31 @@ class Cell_Two(Room):
         print(self.description)
         leave = False
         while leave == False:
-            current_item = self.listItems()
-            current_action = self.listActions()
-            if current_item == "torch on the wall" and current_action == "pull":
-                print("Nothing happened")
-            if current_item == "sleeping prisoner" and current_action == "wake":
-                start = Hallway(self.player)
-                start.start_room()
+            [current_item, current_action, item_index] = self.listItems()
+            if current_item == "sleeping prisoner":
+                if current_action == "inspect":
+                    print("This prisoner appears to be quite well fed, their sleep is quite peacefull...")
+                if current_action == "wake":
+                    pass #riddle function call goes here
+            if current_item == "torch on the wall":
+                if current_action == "inspect":
+                    print("Just a perfectly ordinary every day torch...")
+                if current_action == "pull torch":
+                    print("Nothing happened")
+            if current_item == "ragged tapestry":
+                if current_action == "inspect":
+                    pass #maze clue?
+                if current_action == "lift corner":
+                    print("Upon lifting the tapestry, bemneath you find the following message: 'Not everything is a clue you know...'")
+            if current_item == "cell door":
+                if current_action == "open":
+                    if self.player.isInItems("cell key"):
+                        print("You use the key to unlock the cell door and enter the hallway beyond...")
+                        start = Hallway(player)
+                        start.start_room()
+                    else:
+                        print("The cell door is locked, maybe if you had a key...")
+            if current_item == "passage back to your cell":
+                if current_action == "exit":
+                    start = Cell_Start(player)
+                    start.start_room()
