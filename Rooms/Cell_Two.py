@@ -5,6 +5,7 @@ from .Hallway import Hallway
 import POPO.Player as player
 import Puzzles.riddle as riddle
 
+
 class Cell_Two(Room):
 
     def __init__(self, player):
@@ -13,7 +14,7 @@ class Cell_Two(Room):
             "You find yourself in another jail cell. It's identical to yours- with two exceptions. On one wall there is a tapestry, and on the floor sleeps another prisoner.",
             [{
                 "name": "sleeping prisoner",
-                "actions": ["inspect","wake"]
+                "actions": ["inspect", "wake"]
             }, {
                 "name": "torch on the wall",
                 "actions": ["inspect", "pull"]
@@ -38,7 +39,9 @@ class Cell_Two(Room):
             [current_item, current_action, item_index] = self.listItems()
             if current_item == "sleeping prisoner":
                 if current_action == "inspect":
-                    print("This prisoner appears to be quite well fed, their sleep is quite peacefull...")
+                    print(
+                        "This prisoner appears to be quite well fed, their sleep is quite peaceful..."
+                    )
                 if current_action == "wake":
                     win = riddle.read_riddle()
                     if win == True:
@@ -50,17 +53,23 @@ class Cell_Two(Room):
                     print("Nothing happened")
             if current_item == "ragged tapestry":
                 if current_action == "inspect":
-                    pass #maze clue?
+                    pass  #maze clue?
                 if current_action == "lift corner":
-                    print("Upon lifting the tapestry, bemneath you find the following message: 'Not everything is a clue you know...'")
+                    print(
+                        "Upon lifting the tapestry, bemneath you find the following message: 'Not everything is a clue you know...'"
+                    )
             if current_item == "cell door":
                 if current_action == "open":
                     if self.player.isInItems("cell key"):
-                        print("You use the key to unlock the cell door and enter the hallway beyond...")
+                        print(
+                            "You use the key to unlock the cell door and enter the hallway beyond..."
+                        )
                         start = Hallway(player)
                         start.start_room()
                     else:
-                        print("The cell door is locked, maybe if you had a key...")
+                        print(
+                            "The cell door is locked, maybe if you had a key..."
+                        )
             if current_item == "passage back to your cell":
                 if current_action == "exit":
                     start = Cell_Start(player)
