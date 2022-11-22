@@ -3,6 +3,7 @@ from .Room import Room
 from .Cell_Start import Cell_Start
 from .Hallway import Hallway
 import POPO.Player as player
+import Puzzles.riddle as riddle
 
 class Cell_Two(Room):
 
@@ -39,7 +40,9 @@ class Cell_Two(Room):
                 if current_action == "inspect":
                     print("This prisoner appears to be quite well fed, their sleep is quite peacefull...")
                 if current_action == "wake":
-                    pass #riddle function call goes here
+                    win = riddle.read_riddle()
+                    if win == True:
+                        self.player.insertItem("cell key")
             if current_item == "torch on the wall":
                 if current_action == "inspect":
                     print("Just a perfectly ordinary every day torch...")
