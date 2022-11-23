@@ -1,6 +1,6 @@
 import utils
 from .Room import Room
-from .Cell_Start import Cell_Start
+# from .Cell_Start import Cell_Start
 from .Hallway import Hallway
 import POPO.Player as player
 import Puzzles.riddle as riddle
