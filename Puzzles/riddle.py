@@ -2,7 +2,7 @@
 import random
 
 
-def read_riddle(self):
+def read_riddle():
     riddles_index = random.randint(0, 2)
     riddles = [{
         "What has roots as nobody sees,\nIs taller than trees,\nUp, up it goes,\nAnd yet never grows?":
