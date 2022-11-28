@@ -1,14 +1,3 @@
-# Chase Rindlisbacher
-# Midterm 1 Python Problem
-# Use the following directions to write a program that allows 
-# a user to guess song titles similar to a game of hangman.
-
-# The purpose of the game is to randomly choose a song from a pre-defined list of 1980's songs (like
-# hangman). Here is the list you can use:
-# #This list contains the songs with spaces removed
-# listSongs = ["rocklobster", "peoplearepeople", "onceinalifetime", "sweetdreams", "missionaryman",
-# "safetydance", "cars", "whipit"]
-
 from unicodedata import name
 import random
 
@@ -43,7 +32,7 @@ class Contestant(Person) :
             TotalGuesses = 0
             for g in range(0,len(self.games_played)) : 
                 TotalGuesses += self.games_played[g].guess_count # should add up all the guesses from each game
-            output = f'{self.get_fname()} {self.get_lname()} has played {self.game_count} game(s) and used a total of {TotalGuesses} guesses'
+            output = f'{self.get_fname()} {self.get_lname()} used a total of {TotalGuesses} guesses'
         return output
 # made a function to see if the names you enter have any length
 def valid_name(name) :
@@ -73,7 +62,7 @@ def valid_guess(Guess) :
             bContinue = True
     return Guess
 # here's the list of songs you randomly get to guess at
-listSongs = ["rocklobster", "peoplearepeople", "onceinalifetime", "sweetdreams", "missionaryman","safetydance", "cars", "whipit"]
+lotrNames = ["aragorn", "frodo", "baggins", "elrond", "gandalf","galadriel", "saruman", "sauron"]
 
 # call this function to start a game
 fName = input('Enter player first name: ')
@@ -85,17 +74,17 @@ def play_game(fname,lname) :
 
     iRanNum = random.randint(0,7) # randomly selects a position to use as the index
     # selects the random song
-    RandomSong = listSongs[iRanNum]
-    lstSongsLetters = []
-    lstUnderScoredSong = []
-    underscoredSong = ''
-    # this for loop will make underscoredSong the right length
-    for chr in range(0,len(RandomSong)) :
-        lstSongsLetters.append(RandomSong[chr]) # this is a list of the letters in the randomsong to use for finding more easily.
-        underscoredSong += '_' # equal length string of all underscores
-        lstUnderScoredSong.append('_') # will use to check against lstSongsLetters
+    RandomName = lotrNames[iRanNum]
+    lstNamesLetters = []
+    lstUnderScoredName = []
+    UnderScoredName = ''
+    # this for loop will make UnderScoredName the right length
+    for chr in range(0,len(RandomName)) :
+        lstNamesLetters.append(RandomName[chr]) # this is a list of the letters in the RandomName to use for finding more easily.
+        UnderScoredName += '_' # equal length string of all underscores
+        lstUnderScoredName.append('_') # will use to check against lstNamesLetters
     
-    tempLetterList = lstSongsLetters # to use to check for repeated letters
+    tempLetterList = lstNamesLetters # to use to check for repeated letters
     oContestant = Contestant(fname,lname)
     # initializes the dictionary before the guessing begins
     dictAlphabet = { 'a' : 0, 'b' : 0, 'c' : 0, 'd' : 0, 'e' : 0, 'f' : 0, 'g' : 0, 'h' : 0, 'i' : 0, 'j' : 0, 'k' : 0, 'l' : 0, 'm' : 0, 'n' : 0, 'o' : 0,
@@ -111,43 +100,32 @@ def play_game(fname,lname) :
         else: 
             bContinue2 = True
             while bContinue2 == True :
-                length = len(lstSongsLetters)
+                length = len(lstNamesLetters)
                 if sGuess in dictAlphabet :
                     dictAlphabet[sGuess] += 1
                 while sGuess in(tempLetterList) :
                     for cnt in range(0,length) :
-                        if lstSongsLetters[cnt] == sGuess :
-                            place = lstSongsLetters.index(sGuess)
-                            lstUnderScoredSong[place] = sGuess # replaces the value stored in this list at the position the letter was last found in the song
+                        if lstNamesLetters[cnt] == sGuess :
+                            place = lstNamesLetters.index(sGuess)
+                            lstUnderScoredName[place] = sGuess # replaces the value stored in this list at the position the letter was last found in the song
                             tempLetterList[place] = '_'                    
-                    print(lstUnderScoredSong)
-                else : # eventually must iterate to this once all instances of a guess have been replaced in the lstUnderScoredSong
+                    print(lstUnderScoredName)
+                else : # eventually must iterate to this once all instances of a guess have been replaced in the lstUnderScoredName
                     guess_count += 1
                     bContinue2 = False
-        UnderScoredSong = ''
+        UnderScoredName = ''
 
-        for iCount in range (0,len(lstUnderScoredSong)) :
-            UnderScoredSong += lstUnderScoredSong[iCount]
-        if (UnderScoredSong == RandomSong) :
-            sOutput = f'Correct! You used {guess_count} guesses\nThe song was {RandomSong}'
+        for iCount in range (0,len(lstUnderScoredName)) :
+            UnderScoredName += lstUnderScoredName[iCount]
+        if (UnderScoredName == RandomName) :
+            sOutput = f'Correct! You used {guess_count} guesses\nThe name was {RandomName.capitalize()}'
             print(sOutput)
             # increment games played and create game object
             oGame = Games(guess_count)
             oContestant.game_count += 1
             # append game object to list of games played
             oContestant.games_played.append(oGame)
-            PlayAgain = input("Would you like to play again (Y:N)\n").upper()
-            bContinue1 = True
-            while bContinue1 == True :
-                if PlayAgain == 'Y' :
-                    play_game(fName,lName)
-                    bContinue1 = False
-                elif PlayAgain == 'N' :
-                    print(oContestant.show_results())
-                    bContinue1 = False
-                else :
-                    PlayAgain = input("Enter a valid Y or N")
-
+            print(oContestant.show_results())
         elif guess_count > 20 :
             print("You took too many guesses!")
             PlayAgain = input("Would you like to play again (Y:N)\n").upper()
