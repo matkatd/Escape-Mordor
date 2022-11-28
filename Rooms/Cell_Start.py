@@ -1,7 +1,7 @@
 #standard imports
 import utils
 import POPO.Player as player
-from Rooms.Room import Room
+import Rooms.Room as Room
 #room specific imports
 import Rooms.Cell_Two as Cell_Two
 import Rooms.Hallway as Hallway
