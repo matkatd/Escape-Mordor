@@ -1,7 +1,11 @@
-from Rooms.Room import Room
+#standard imports
 import utils
-import Rooms.Main_Chamber as Main_Chamber
 import POPO.Player as player
+from Rooms.Room import Room
+#room specific imports
+import Rooms.Cell_Start as Cell_Start
+import Rooms.Cell_Two as Cell_Two
+import Rooms.Main_Chamber as Main_Chamber
 
 class Hallway(Room):
 
@@ -10,14 +14,14 @@ class Hallway(Room):
             "Hallway",
             "You find yourself in the hallway of the cell block. There are many cells, including the one you just exited and the one you used to call your own. At the end of the hallway is the exit, but it appears to be locked.",
             [{
-                "name": "exit",
-                "actions": ["inspect, unlock"]
+                "name": "Hallway exit",
+                "actions": ["inspect", "open"]
             }, {
                 "name": "Gollum's cell",
-                "actions": ["enter"]
+                "actions": ["inspect", "open"]
             }, {
                 "name": f"{player.getName()}'s Cell",
-                "actions": ["exit"]
+                "actions": ["inspect", "open"]
             }, {
                 "name": "Tapestry",
                 "actions": ["inspect", "lift corner"]
@@ -32,8 +36,6 @@ class Hallway(Room):
         while leave == False:
             current_item = self.listItems()
             current_action = self.listActions()
-            if current_item == "torch on the wall" and current_action == "pull":
-                print("Nothing happened")
-            if current_item == "sleeping prisoner" and current_action == "wake":
-                start = Main_Chamber.Main_Chamber(self.player)
-                start.start_room()
+            if current_item == "":
+                if current_action == "":
+                    pass

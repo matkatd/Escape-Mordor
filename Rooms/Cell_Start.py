@@ -1,8 +1,10 @@
+#standard imports
 import utils
-from Rooms.Room import Room
-import Rooms.Cell_Two as Cell_Two
 import POPO.Player as player
-
+from Rooms.Room import Room
+#room specific imports
+import Rooms.Cell_Two as Cell_Two
+import Rooms.Hallway as Hallway
 
 class Cell_Start(Room):
 
@@ -63,7 +65,14 @@ class Cell_Start(Room):
                     self.player.insertItem(current_item)
             if current_item == "cell door":
                 if current_action == "open":
-                    print("Your cell door is locked...")
+                    if self.player.isInItems("cell key"):
+                        print(
+                            "You use the key to unlock the cell door and enter the hallway beyond..."
+                        )
+                        start = Hallway.Hallway(self.player)
+                        start.start_room()
+                    else:
+                        print("Your cell door is locked...")
             if current_item == "secret passage" and current_action == "exit":
                 start = Cell_Two.Cell_Two(self.player)
                 start.start_room()

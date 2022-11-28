@@ -1,6 +1,9 @@
-from Rooms.Room import Room
+#standard imports
 import utils
 import POPO.Player as player
+from Rooms.Room import Room
+#room specific imports
+import Rooms.Main_Chamber as Main_Chamber
 
 class Guards_Room(Room):
 

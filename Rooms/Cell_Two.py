@@ -1,8 +1,10 @@
+#standard imports
 import utils
-import Rooms.Room as Room
+import POPO.Player as player
+from Rooms.Room import Room
+#room specific imports
 import Rooms.Cell_Start as Cell_Start
 import Rooms.Hallway as Hallway
-import POPO.Player as player
 import Puzzles.riddle as riddle
 
 

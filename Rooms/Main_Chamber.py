@@ -1,6 +1,11 @@
-from Rooms.Room import Room
+#standard imports
 import utils
 import POPO.Player as player
+from Rooms.Room import Room
+#room specific imports
+import Rooms.Hallway as Hallway
+import Rooms.Armory as Armory
+import Rooms.Guards_Room as Guards_Room
 
 class Main_Chamber(Room):
 
@@ -10,10 +15,10 @@ class Main_Chamber(Room):
             "You find yourself in a large chamber...",
             [{
                 "name": "Guard Room Door",
-                "actions": ["open"]
+                "actions": ["inspect","open"]
             }, {
                 "name": "Armory Door",
-                "actions": ["open"]
+                "actions": ["inspect","open"]
             }, {
                 "name": "Exit Door",
                 "actions": ["open"]
