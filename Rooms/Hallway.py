@@ -1,6 +1,6 @@
 from .Room import Room
 import utils
-from .Main_Chamber import Main_Chamber
+from .Main_ChamberA import Main_Chamber
 
 
 class Hallway(Room):
