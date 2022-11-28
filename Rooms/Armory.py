@@ -1,4 +1,4 @@
-from .Room import Room
+from Rooms.Room import Room
 
 
 class Armory(Room):

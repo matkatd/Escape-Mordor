@@ -1,12 +1,12 @@
 import utils
-from .Room import Room
-# from .Cell_Start import Cell_Start
-from .Hallway import Hallway
+import Rooms.Room as Room
+import Rooms.Cell_Start as Cell_Start
+import Rooms.Hallway as Hallway
 import POPO.Player as player
 import Puzzles.riddle as riddle
 
 
-class Cell_Two(Room):
+class Cell_Two(Room.Room):
 
     def __init__(self, player):
         super().__init__(
@@ -24,6 +24,9 @@ class Cell_Two(Room):
             }, {
                 "name": "cell door",
                 "actions": ["open"]
+            }, {
+                "name": "passage back to your cell",
+                "actions": ["exit"]
             }], 1, 2, player)
 
     def start_room(self):
@@ -61,9 +64,13 @@ class Cell_Two(Room):
                         print(
                             "You use the key to unlock the cell door and enter the hallway beyond..."
                         )
-                        start = Hallway(player)
+                        start = Hallway.Hallway(self.player)
                         start.start_room()
                     else:
                         print(
                             "The cell door is locked, maybe if you had a key..."
                         )
+            if current_item == "passage back to your cell":
+                if current_action == "exit":
+                    start = Cell_Start.Cell_Start(self.player)
+                    start.start_room()

@@ -1,6 +1,6 @@
-from .Room import Room
+from Rooms.Room import Room
 import utils
-from .Main_ChamberA import Main_Chamber
+import Rooms.Main_ChamberA as Main_Chamber
 
 
 class Hallway(Room):
@@ -38,5 +38,5 @@ class Hallway(Room):
             if current_item == "torch on the wall" and current_action == "pull":
                 print("Nothing happened")
             if current_item == "sleeping prisoner" and current_action == "wake":
-                start = Main_Chamber(self.player)
+                start = Main_Chamber.Main_Chamber(self.player)
                 start.start_room()
