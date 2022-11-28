@@ -7,8 +7,6 @@ class Room:
         self.name = name
         self.description = description
         self.items = items
-        self.next = next
-        self.previous = previous
         self.player = player
 
     def listActions(self, item_index):

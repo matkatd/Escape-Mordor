@@ -22,7 +22,7 @@ class Cell_Start(Room):
             }, {
                 "name": "cell door",
                 "actions": ["open"]
-            }], 0, 1, player)
+            }], player)
 
     def start_room(self):
         utils.print_line_of_char("#")

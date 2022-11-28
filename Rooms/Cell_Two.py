@@ -10,7 +10,7 @@ class Cell_Two(Room.Room):
 
     def __init__(self, player):
         super().__init__(
-            "Cell Two",
+            "Gollum's cell",
             "You find yourself in another jail cell. It's identical to yours- with two exceptions. On one wall there is a tapestry, and on the floor sleeps another prisoner.",
             [{
                 "name": "sleeping prisoner",
@@ -27,7 +27,7 @@ class Cell_Two(Room.Room):
             }, {
                 "name": "passage back to your cell",
                 "actions": ["exit"]
-            }], 1, 2, player)
+            }], player)
 
     def start_room(self):
         utils.print_line_of_char("#")

@@ -1,30 +1,27 @@
 from Rooms.Room import Room
 import utils
-import Rooms.Main_ChamberA as Main_Chamber
-
+import Rooms.Main_Chamber as Main_Chamber
+import POPO.Player as player
 
 class Hallway(Room):
 
     def __init__(self, player):
         super().__init__(
             "Hallway",
-            "You find yourself in the hallway of the cell block. There are many cells, including the one you just exited and the one you used to call your own. At the end of the hallway is the exit, but it appears to be locked. ",
+            "You find yourself in the hallway of the cell block. There are many cells, including the one you just exited and the one you used to call your own. At the end of the hallway is the exit, but it appears to be locked.",
             [{
                 "name": "exit",
                 "actions": ["inspect, unlock"]
             }, {
-                "name": "open cell",
+                "name": "Gollum's cell",
                 "actions": ["enter"]
             }, {
-                "name": "banner",
-                "actions": ["inspect"]
-            }, {
-                "name": "cell door",
-                "actions": ["open"]
-            }, {
-                "name": "passage back to your cell",
+                "name": f"{player.getName()}'s Cell",
                 "actions": ["exit"]
-            }], 2, 3, player)
+            }, {
+                "name": "Tapestry",
+                "actions": ["inspect", "lift corner"]
+            }], player)
 
     def start_room(self):
         utils.print_line_of_char("#")
