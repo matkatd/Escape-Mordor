@@ -13,17 +13,20 @@ class Main_Chamber(Room.Room):
             "Main_Chamber",
             "You find yourself in a large chamber...",
             [{
-                "name": "Guard Room Door",
+                "name": "hallway door",
                 "actions": ["inspect","open"]
             }, {
-                "name": "Armory Door",
+                "name": "armory door",
                 "actions": ["inspect","open"]
             }, {
-                "name": "Exit Door",
+                "name": "exit door",
                 "actions": ["open"]
             }, {
-                "name": "Cell Block Door",
-                "actions": ["open"]
+                "name": "gallows",
+                "actions": ["inspect"]
+            }, {
+                "name": "excecutioner",
+                "actions":["talk", ""]
             }], player)
 
     def start_room(self):

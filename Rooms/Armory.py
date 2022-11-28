@@ -11,11 +11,14 @@ class Armory(Room.Room):
             "Armory",
             "You find yourself in the armory...",
             [{
-                "name": "spooky scary skeleton",
-                "actions": ["action1"]
+                "name": "weapons chest",
+                "actions": ["inspect", "open"]
             }, {
                 "name": "torch on the wall",
                 "actions": ["inspect", "pull"]
+            }, {
+                "name": "drunk guard",
+                "actions": ["inspect", "talk"]
             }], player)
 
     def start_room(self):

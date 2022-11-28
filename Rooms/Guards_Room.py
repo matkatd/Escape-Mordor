@@ -11,11 +11,11 @@ class Guards_Room(Room.Room):
             "Guards Room",
             "You find yourself in the guards quarters...",
             [{
-                "name": "",
-                "actions": ["",""]
+                "name": "guard captain",
+                "actions": ["inspect","talk"]
             }, {
-                "name": "",
-                "actions": ["",""]
+                "name": "door to main chamber",
+                "actions": ["open"]
             }], player)
 
     def start_room(self):
