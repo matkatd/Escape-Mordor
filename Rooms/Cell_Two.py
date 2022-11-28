@@ -24,9 +24,6 @@ class Cell_Two(Room):
             }, {
                 "name": "cell door",
                 "actions": ["open"]
-            }, {
-                "name": "passage back to your cell",
-                "actions": ["exit"]
             }], 1, 2, player)
 
     def start_room(self):
@@ -70,7 +67,3 @@ class Cell_Two(Room):
                         print(
                             "The cell door is locked, maybe if you had a key..."
                         )
-            if current_item == "passage back to your cell":
-                if current_action == "exit":
-                    start = Cell_Start(player)
-                    start.start_room()
