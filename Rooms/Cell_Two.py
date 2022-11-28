@@ -8,7 +8,7 @@ import Rooms.Hallway as Hallway
 import Puzzles.riddle as riddle
 
 
-class Cell_Two(Room.Room):
+class Cell_Two(Room):
 
     def __init__(self, player):
         super().__init__(
