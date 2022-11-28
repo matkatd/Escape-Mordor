@@ -1,5 +1,5 @@
-from Rooms.Cell_Start import Cell_Start
-
+import Rooms.Room
+import Rooms.Cell_Start as Cell_Start
 import utils
 from POPO.Player import Player
 
@@ -19,7 +19,7 @@ class Game:
         if len(name) > 0:
             player = Player()
             player.setName(name)
-            start = Cell_Start(player)
+            start = Cell_Start.Cell_Start(player)
             start.start_room()
         else:
             print("Farewell!")
