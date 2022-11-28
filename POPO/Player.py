@@ -1,7 +1,6 @@
 class Player:
 
     def __init__(self):
-
         self.items = []
 
     def setName(self, name):

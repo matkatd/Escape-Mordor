@@ -1,30 +1,31 @@
-from .Room import Room
+#standard imports
 import utils
-from .Main_Chamber import Main_Chamber
+import Rooms.Room as Room
+#room specific imports
+import Rooms.Cell_Start as Cell_Start
+import Rooms.Cell_Two as Cell_Two
+import Rooms.Main_Chamber as Main_Chamber
+import Puzzles.hallway_cipher as hallway_cipher
 
-
-class Hallway(Room):
+class Hallway(Room.Room):
 
     def __init__(self, player):
         super().__init__(
             "Hallway",
-            "You find yourself in the hallway of the cell block. There are many cells, including the one you just exited and the one you used to call your own. At the end of the hallway is the exit, but it appears to be locked. ",
+            "You find yourself in the hallway of the cell block. There are many cells, including the one you just exited and the one you used to call your own. At the end of the hallway is the exit, but it appears to be locked.",
             [{
-                "name": "exit",
-                "actions": ["inspect, unlock"]
+                "name": "Hallway exit",
+                "actions": ["inspect", "open"]
             }, {
-                "name": "open cell",
-                "actions": ["enter"]
+                "name": "gollum's cell",
+                "actions": ["inspect", "open"]
             }, {
-                "name": "banner",
-                "actions": ["inspect"]
+                "name": f"{player.getName()}'s cell",
+                "actions": ["inspect", "open"]
             }, {
-                "name": "cell door",
-                "actions": ["open"]
-            }, {
-                "name": "passage back to your cell",
-                "actions": ["exit"]
-            }], 2, 3, player)
+                "name": "tapestry",
+                "actions": ["inspect", "lift corner"]
+            }], player)
 
     def start_room(self):
         utils.print_line_of_char("#")
@@ -33,10 +34,32 @@ class Hallway(Room):
         print(self.description)
         leave = False
         while leave == False:
-            current_item = self.listItems()
-            current_action = self.listActions()
-            if current_item == "torch on the wall" and current_action == "pull":
-                print("Nothing happened")
-            if current_item == "sleeping prisoner" and current_action == "wake":
-                start = Main_Chamber(self.player)
-                start.start_room()
+            [current_item, current_action, item_index] = self.listItems()
+            if current_item == "hallway exit":
+                if current_action == "inspect":
+                    print("The exit is a large door, the locking mechanism apppears to require some sort code...")
+                if current_action == "open":
+                    win = hallway_cipher.cipher()
+                    if win == True:
+                        start = Main_Chamber.Main_Chamber()
+                        start.start_room()
+                    else:
+                        print("Better luck next time...")
+            if current_item == "gollum's cell":
+                if current_action == "inspect":
+                    print("Gollum appears to have gone back to sleep...")
+                if current_action == "open":
+                    start = Cell_Two.Cell_Two()
+                    start.start_room()
+            if current_item == f"{self.player.getName()}'s cell":
+                if current_action == "inspect":
+                    print("Your cell appears much smaller from the outside...")
+                if current_action == "open":
+                    start = Cell_Start.Cell_Start()
+                    start.start_room()
+            if current_item == "tapestry":
+                if current_action == "inspect":
+                    print("Maze clue2")
+                if current_action == "lift corner":
+                    print("A blank wall confronts you...")
+            
