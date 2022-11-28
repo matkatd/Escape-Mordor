@@ -1,6 +1,5 @@
 #standard imports
 import utils
-import POPO.Player as player
 import Rooms.Room as Room
 #room specific imports
 import Rooms.Cell_Start as Cell_Start
