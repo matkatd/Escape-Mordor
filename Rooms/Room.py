@@ -3,7 +3,7 @@ import POPO.Player as player
 
 class Room:
 
-    def __init__(self, name, description, items, next, previous, player):
+    def __init__(self, name, description, items, player):
         self.name = name
         self.description = description
         self.items = items

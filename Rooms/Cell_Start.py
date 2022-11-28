@@ -1,12 +1,11 @@
 #standard imports
 import utils
-import POPO.Player as player
 import Rooms.Room as Room
 #room specific imports
 import Rooms.Cell_Two as Cell_Two
 import Rooms.Hallway as Hallway
 
-class Cell_Start(Room):
+class Cell_Start(Room.Room):
 
     def __init__(self, player):
         super().__init__(

@@ -7,7 +7,7 @@ import Rooms.Hallway as Hallway
 import Rooms.Armory as Armory
 import Rooms.Guards_Room as Guards_Room
 
-class Main_Chamber(Room):
+class Main_Chamber(Room.Room):
 
     def __init__(self, player):
         super().__init__(

@@ -7,7 +7,7 @@ import Rooms.Cell_Start as Cell_Start
 import Rooms.Cell_Two as Cell_Two
 import Rooms.Main_Chamber as Main_Chamber
 
-class Hallway(Room):
+class Hallway(Room.Room):
 
     def __init__(self, player):
         super().__init__(
@@ -17,13 +17,13 @@ class Hallway(Room):
                 "name": "Hallway exit",
                 "actions": ["inspect", "open"]
             }, {
-                "name": "Gollum's cell",
+                "name": "gollum's cell",
                 "actions": ["inspect", "open"]
             }, {
-                "name": f"{player.getName()}'s Cell",
+                "name": f"{player.getName()}'s cell",
                 "actions": ["inspect", "open"]
             }, {
-                "name": "Tapestry",
+                "name": "tapestry",
                 "actions": ["inspect", "lift corner"]
             }], player)
 
@@ -35,6 +35,16 @@ class Hallway(Room):
         leave = False
         while leave == False:
             [current_item, current_action, item_index] = self.listItems()
-            if current_item == "":
+            if current_item == "hallway exit":
                 if current_action == "":
                     pass
+            if current_item == "gollum's cell":
+                if current_action == "":
+                    pass
+            if current_item == f"{player.getName()}'s cell":
+                if current_action == "":
+                    pass
+            if current_item == "tapestry":
+                if current_action == "":
+                    pass
+            
