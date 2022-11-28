@@ -40,7 +40,7 @@ class Hallway(Room.Room):
             if current_item == "gollum's cell":
                 if current_action == "":
                     pass
-            if current_item == f"{player.getName()}'s cell":
+            if current_item == f"{self.player.getName()}'s cell":
                 if current_action == "":
                     pass
             if current_item == "tapestry":
