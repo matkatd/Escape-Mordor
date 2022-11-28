@@ -26,8 +26,7 @@ class Armory(Room):
         print(self.description)
         leave = False
         while leave == False:
-            current_item = self.listItems()
-            current_action = self.listActions()
+            [current_item, current_action, item_index] = self.listItems()
             if current_item == "":
                 if current_action == "":
                     pass
