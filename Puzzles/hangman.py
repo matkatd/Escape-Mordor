@@ -1,14 +1,3 @@
-# Chase Rindlisbacher
-# Midterm 1 Python Problem
-# Use the following directions to write a program that allows 
-# a user to guess song titles similar to a game of hangman.
-
-# The purpose of the game is to randomly choose a song from a pre-defined list of 1980's songs (like
-# hangman). Here is the list you can use:
-# #This list contains the songs with spaces removed
-# listSongs = ["rocklobster", "peoplearepeople", "onceinalifetime", "sweetdreams", "missionaryman",
-# "safetydance", "cars", "whipit"]
-
 from unicodedata import name
 import random
 
