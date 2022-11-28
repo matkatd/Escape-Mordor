@@ -72,7 +72,7 @@ class Cell_Start(Room):
                         start = Hallway.Hallway(self.player)
                         start.start_room()
                     else:
-                        print("Your cell door is locked...")
+                        print("Your cell door is locked, maybe if you had a key...")
             if current_item == "secret passage" and current_action == "exit":
                 start = Cell_Two.Cell_Two(self.player)
                 start.start_room()
