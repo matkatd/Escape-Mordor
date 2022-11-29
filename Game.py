@@ -2,6 +2,7 @@ import Rooms.Cell_Start as Cell_Start
 import utils
 from POPO.Player import Player
 from datetime import datetime as dt 
+import sys
 
 
 class Game:
@@ -26,10 +27,14 @@ class Game:
             print("Farewell!")
             return
 
-    def win(self, starttime):
-        print(f"Congradulations on your victory")
+    def win(self, message, starttime):
+        print(message)
         print(f"Total gametime elapsed: {dt.now() - starttime}")
-        return
+        sys.exit()
+    
+    def lose(self, message, starttime):
+        print(message)
+        sys.exit()
 
 
 game = Game()

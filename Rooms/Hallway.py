@@ -13,7 +13,7 @@ class Hallway(Room.Room):
     def __init__(self, player, starttime):
         super().__init__(
             "Hallway",
-            "You find yourself in the hallway of the cell block. There are many cells, including the one you just exited and the one you used to call your own. At the end of the hallway is the exit, but it appears to be locked.",
+            "You find yourself in the hallway of the cell block. There are many cells, including the gollum's and the your's. At the end of the hallway is the exit, but it appears to be locked.",
             [{
                 "name": "Hallway exit",
                 "actions": ["inspect", "open"]

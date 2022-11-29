@@ -3,6 +3,7 @@ from datetime import datetime as dt
 import utils
 import Rooms.Room as Room
 #room specific imports
+# import Game as Game
 import Rooms.Cell_Two as Cell_Two
 import Rooms.Hallway as Hallway
 
@@ -58,7 +59,8 @@ class Cell_Start(Room.Room):
                         "A old flask lies upon a table, the liquid inside is murky and mysterious..."
                     )
                 if current_action == "drink":
-                    print("You begin to feel woozy...")
+                    # start = Game.Game()
+                    # start.lose("You begin too feel woozy and suddenly you fall to the floor, darkness fills your vision...", self.starttime)
                     self.items.pop(item_index)
                 if current_action == "get":
                     print(f"You got {current_item}")
