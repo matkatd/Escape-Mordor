@@ -32,7 +32,7 @@ class Game:
         print(f"Total gametime elapsed: {dt.now() - starttime}")
         sys.exit()
     
-    def lose(self, message, starttime):
+    def lose(self, message, starttime): #add playagsain/inventory reset
         print(message)
         sys.exit()
 
