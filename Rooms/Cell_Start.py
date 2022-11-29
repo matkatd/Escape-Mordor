@@ -1,4 +1,5 @@
 #standard imports
+from datetime import datetime as dt 
 import utils
 import Rooms.Room as Room
 #room specific imports
@@ -7,7 +8,7 @@ import Rooms.Hallway as Hallway
 
 class Cell_Start(Room.Room):
 
-    def __init__(self, player):
+    def __init__(self, player, starttime):
         super().__init__(
             f"{player.getName()}'s Cell",
             "You find yourself in a jail cell, three walls apear to be solid stone the third is the door. In one corner is a table with a flask, in the other lies a skeleton.",
@@ -23,12 +24,13 @@ class Cell_Start(Room.Room):
             }, {
                 "name": "cell door",
                 "actions": ["open"]
-            }], player)
+            }], player, starttime)
 
     def start_room(self):
         utils.print_line_of_char("#")
         utils.print_centered_text(self.name)
         utils.print_line_of_char("#")
+        print(f"Gametime elapsed: {dt.now() - self.starttime}")
         print(self.description)
         leave = False
         while leave == False:
@@ -68,10 +70,10 @@ class Cell_Start(Room.Room):
                         print(
                             "You use the key to unlock the cell door and enter the hallway beyond..."
                         )
-                        start = Hallway.Hallway(self.player)
+                        start = Hallway.Hallway(self.player, self.starttime)
                         start.start_room()
                     else:
                         print("Your cell door is locked, maybe if you had a key...")
             if current_item == "secret passage" and current_action == "exit":
-                start = Cell_Two.Cell_Two(self.player)
+                start = Cell_Two.Cell_Two(self.player, self.starttime)
                 start.start_room()

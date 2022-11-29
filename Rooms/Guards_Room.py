@@ -1,4 +1,5 @@
 #standard imports
+from datetime import datetime as dt 
 import utils
 import Rooms.Room as Room
 #room specific imports
@@ -6,7 +7,7 @@ import Rooms.Main_Chamber as Main_Chamber
 
 class Guards_Room(Room.Room):
 
-    def __init__(self, player):
+    def __init__(self, player, starttime):
         super().__init__(
             "Guards Room",
             "You find yourself in the guards quarters...",
@@ -16,12 +17,13 @@ class Guards_Room(Room.Room):
             }, {
                 "name": "door to main chamber",
                 "actions": ["open"]
-            }], player)
+            }], player, starttime)
 
     def start_room(self):
         utils.print_line_of_char("#")
         utils.print_centered_text(self.name)
         utils.print_line_of_char("#")
+        print(f"Gametime elapsed: {dt.now() - self.starttime}")
         print(self.description)
         leave = False
         while leave == False:

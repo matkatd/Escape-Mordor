@@ -3,11 +3,12 @@ import POPO.Player as player
 
 class Room:
 
-    def __init__(self, name, description, items, player):
+    def __init__(self, name, description, items, player, starttime):
         self.name = name
         self.description = description
         self.items = items
         self.player = player
+        self.starttime = starttime
 
     def listActions(self, item_index):
         valid_b = False

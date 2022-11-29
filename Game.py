@@ -1,7 +1,7 @@
-import Rooms.Room
 import Rooms.Cell_Start as Cell_Start
 import utils
 from POPO.Player import Player
+from datetime import datetime as dt 
 
 
 class Game:
@@ -19,11 +19,17 @@ class Game:
         if len(name) > 0:
             player = Player()
             player.setName(name)
-            start = Cell_Start.Cell_Start(player)
+            starttime = dt.now()
+            start = Cell_Start.Cell_Start(player, starttime)
             start.start_room()
         else:
             print("Farewell!")
             return
+
+    def win(self, starttime):
+        print(f"Congradulations on your victory")
+        print(f"Total gametime elapsed: {dt.now() - starttime}")
+        return
 
 
 game = Game()

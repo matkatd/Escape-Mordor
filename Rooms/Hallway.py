@@ -1,4 +1,5 @@
 #standard imports
+from datetime import datetime as dt 
 import utils
 import Rooms.Room as Room
 #room specific imports
@@ -9,7 +10,7 @@ import Puzzles.hallway_cipher as hallway_cipher
 
 class Hallway(Room.Room):
 
-    def __init__(self, player):
+    def __init__(self, player, starttime):
         super().__init__(
             "Hallway",
             "You find yourself in the hallway of the cell block. There are many cells, including the one you just exited and the one you used to call your own. At the end of the hallway is the exit, but it appears to be locked.",
@@ -25,12 +26,13 @@ class Hallway(Room.Room):
             }, {
                 "name": "tapestry",
                 "actions": ["inspect", "lift corner"]
-            }], player)
+            }], player, starttime)
 
     def start_room(self):
         utils.print_line_of_char("#")
         utils.print_centered_text(self.name)
         utils.print_line_of_char("#")
+        print(f"Gametime elapsed: {dt.now() - self.starttime}")
         print(self.description)
         leave = False
         while leave == False:
@@ -41,7 +43,7 @@ class Hallway(Room.Room):
                 if current_action == "open":
                     win = hallway_cipher.cipher()
                     if win == True:
-                        start = Main_Chamber.Main_Chamber()
+                        start = Main_Chamber.Main_Chamber(self.player, self.starttime)
                         start.start_room()
                     else:
                         print("Better luck next time...")
@@ -49,13 +51,13 @@ class Hallway(Room.Room):
                 if current_action == "inspect":
                     print("Gollum appears to have gone back to sleep...")
                 if current_action == "open":
-                    start = Cell_Two.Cell_Two()
+                    start = Cell_Two.Cell_Two(self.player, self.starttime)
                     start.start_room()
             if current_item == f"{self.player.getName()}'s cell":
                 if current_action == "inspect":
                     print("Your cell appears much smaller from the outside...")
                 if current_action == "open":
-                    start = Cell_Start.Cell_Start()
+                    start = Cell_Start.Cell_Start(self.player, self.starttime)
                     start.start_room()
             if current_item == "tapestry":
                 if current_action == "inspect":
