@@ -13,7 +13,7 @@ class Player:
         self.items.append(item)
 
     def isInItems(self, item):
-        if (self.item.count(item) >= 1):
+        if (self.items.count(item) >= 1):
             return True
         else:
             return False
