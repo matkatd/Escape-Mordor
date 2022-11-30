@@ -16,7 +16,8 @@ class Game:
         print(
             "Welcome to the dungeons of Mordor adventurer, are you ready for what awaits?"
         )
-        print("(Enter your name to start, press enter to quit)")
+        print(
+            "(Enter your name to start, leave blank and press enter to quit)")
         name = input()
         if len(name) > 0:
             player = Player()
