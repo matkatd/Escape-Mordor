@@ -1,5 +1,5 @@
 #standard imports
-from datetime import datetime as dt 
+from datetime import datetime as dt
 import utils as utils
 import win_lose as win_lose
 import Rooms.Room as Room
@@ -7,6 +7,7 @@ import Rooms.Room as Room
 import Rooms.Cell_Start as Cell_Start
 import Rooms.Hallway as Hallway
 import Puzzles.riddle as riddle
+
 
 class Cell_Two(Room.Room):
 
@@ -19,7 +20,7 @@ class Cell_Two(Room.Room):
                 "actions": ["inspect", "wake"]
             }, {
                 "name": "torch on the wall",
-                "actions": ["inspect", "pull"]
+                "actions": ["inspect", "pull torch"]
             }, {
                 "name": "ragged tapestry",
                 "actions": ["inspect", "lift corner"]
@@ -49,8 +50,10 @@ class Cell_Two(Room.Room):
                     win = riddle.read_riddle()
                     if win == True:
                         self.player.insertItem("cell key")
-                    else :
-                        win_lose.end('You were eaten by Gollum and failed to escape the dungeons of Mordor.', self.starttime)
+                    else:
+                        win_lose.end(
+                            'You were eaten by Gollum and failed to escape the dungeons of Mordor.',
+                            self.starttime)
             if current_item == "torch on the wall":
                 if current_action == "inspect":
                     print("Just a perfectly ordinary every day torch...")

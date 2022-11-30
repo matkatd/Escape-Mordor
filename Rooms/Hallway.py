@@ -15,7 +15,7 @@ class Hallway(Room.Room):
     def __init__(self, player, starttime):
         super().__init__(
             "Hallway",
-            "You find yourself in the hallway of the cell block. There are many cells, including the gollum's and the your's. At the end of the hallway is the exit, but it appears to be locked.",
+            "You find yourself in the hallway of the cell block. There are many cells, including gollum's and your's. \nAt the end of the hallway is the exit, but it appears to be locked.",
             [{
                 "name": "hallway exit",
                 "actions": ["inspect", "open"]
@@ -58,8 +58,10 @@ class Hallway(Room.Room):
                                 start = Main_Chamber.Main_Chamber(
                                     self.player, self.starttime)
                                 start.start_room()
-                            else :
-                                answer = input('Incorrect, try again!\nEnter the three digit combination:\n')
+                            else:
+                                answer = input(
+                                    'Incorrect, try again!\nEnter the three digit combination:\n'
+                                )
 
                     else:
                         print(
