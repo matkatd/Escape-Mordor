@@ -48,6 +48,7 @@ class Fight():
             return self.captainMoves2[moveIndex]
 
     def fight(self, playerMove, captainMove):
+        print("\n")
         if (playerMove == "stab"):
             if captainMove == "stab":
                 print("You both stab each other. \nOuch!")
