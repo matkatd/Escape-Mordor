@@ -3,6 +3,7 @@
 ## Introduction
 
 Welcome to the Dungeons of Mordor! Your goal is to get out, preferably alive...
+Keep the world and characters of Middle Earth in mind as you play through, it _may_ help with a puzzle or two
 
 ## Running the Game
 
