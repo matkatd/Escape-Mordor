@@ -92,7 +92,7 @@ class Armory(Room.Room):
                 if current_action == "inspect":
                     print("On the wall hangs a pair of crossed axes, they seem to be tied to the wall with some wire...")
                 if current_action == "get":
-                    print("The axes stuck to the wall...")
+                    print("The axes are stuck to the wall...")
             if current_item == "guards uniform":
                 if current_action == "inspect":
                     print("On the wall hangs a fresh guards uniform...")
