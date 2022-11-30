@@ -1,4 +1,5 @@
 import os
+
 # contains functions that will be reused in multiple classes
 def print_line_of_char(char):
     terminal_width = os.get_terminal_size()[0]

@@ -1,13 +1,12 @@
 #standard imports
 from datetime import datetime as dt 
-import utils
+import utils as utils
+import win_lose as win_lose
 import Rooms.Room as Room
 #room specific imports
 import Rooms.Cell_Start as Cell_Start
 import Rooms.Hallway as Hallway
 import Puzzles.riddle as riddle
-import Game as game
-
 
 class Cell_Two(Room.Room):
 
@@ -51,7 +50,7 @@ class Cell_Two(Room.Room):
                     if win == True:
                         self.player.insertItem("cell key")
                     else :
-                        
+                        win_lose.lose('You were eaten by Gollum and failed to escape the dungeons of Mordor.', f'Game Time elapsed: {dt.now() - self.starttime}')
                         pass
             if current_item == "torch on the wall":
                 if current_action == "inspect":
