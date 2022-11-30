@@ -11,7 +11,7 @@ class Armory(Room.Room):
     def __init__(self, player, starttime):
         super().__init__(
             "Armory",
-            "You find yourself in the armory...",
+            "You find yourself in the armory. Against the far wall rests a large weapons chest, above it is a bracket holding three torches. In one corner a sleeping guard rests. To your left hangs a guards uniform. To your right hangs a pair of crossed axes.",
             [{
                 "name": "weapons chest",
                 "actions": ["inspect", "open"]
@@ -19,7 +19,7 @@ class Armory(Room.Room):
                 "name": "torch bracket",
                 "actions": ["inspect", "interact"]
             }, {
-                "name": "drunk guard",
+                "name": "sleeping guard",
                 "actions": ["inspect", "talk"]
             }, {
                 "name": "crossed axes",
@@ -64,7 +64,7 @@ class Armory(Room.Room):
                         print("You hear a loud click from the chest below...")
                     else:
                         print("Nothing happened...")
-            if current_item == "drunk guard":
+            if current_item == "sleeping guard":
                 if current_action == "inspect":
                     print("A guard lies sleeping in the corner, based on his current condition and the pile of empty bottles around him, he seeems to like a good drink...")
                 if current_action == "talk":
