@@ -58,10 +58,10 @@ class Cell_Two(Room.Room):
                     print("Nothing happened")
             if current_item == "ragged tapestry":
                 if current_action == "inspect":
-                    pass  #maze clue?
+                    print('It looks like a corner is loose')
                 if current_action == "lift corner":
                     print(
-                        "Upon lifting the tapestry, bemneath you find the following message: 'Not everything is a clue you know...'"
+                        "Upon lifting the tapestry, beneath you find the following message: 'Not everything is a clue you know...'"
                     )
             if current_item == "cell door":
                 if current_action == "open":
