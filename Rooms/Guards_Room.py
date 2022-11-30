@@ -69,3 +69,7 @@ class Guards_Room(Room.Room):
                     print("The table is too heavy to move, this is why we don't skip leg day..")
                 if current_action == "look under":
                     print("On the underside of the table someone has scratched a message:\n 'Made you look!'")
+            if current_item == "door to main chamber":
+                if current_action == "open":
+                    start = Main_Chamber.Main_Chamber(self.player, self.starttime)
+                    start.start_room()
