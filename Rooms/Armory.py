@@ -11,7 +11,7 @@ class Armory(Room.Room):
     def __init__(self, player, starttime):
         super().__init__(
             "Armory",
-            "You find yourself in the armory. Against the far wall rests a large weapons chest, above it is a bracket holding three torches. In one corner a sleeping guard rests. To your left hangs a guard's uniform'. To your right hangs a pair of crossed axes.",
+            "You find yourself in the armory. Against the far wall rests a large weapons chest, above it is a bracket holding three torches. In one corner a sleeping guard rests. To your left hangs a guard's uniform. To your right hangs a pair of crossed axes.",
             [{
                 "name": "weapons chest",
                 "actions": ["inspect", "open"]

@@ -14,7 +14,7 @@ class Player:
         self.items.append(item)
 
     def deleteItem(self, item):
-        self.items.pop(item)
+        self.items.remove(item)
 
     def isInItems(self, item):
         if (self.items.count(item) >= 1):
