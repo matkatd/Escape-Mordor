@@ -4,7 +4,14 @@ from POPO.Player import Player
 from datetime import datetime as dt 
 import sys
 
-
+def win(self, message, starttime):
+    print(message)
+    print(f"Total gametime elapsed: {dt.now() - starttime}")
+    sys.exit()
+    
+def lose(self, message, starttime): #add playagsain/inventory reset
+    print(message)
+    sys.exit()
 class Game:
 
     def run(self):
@@ -26,16 +33,6 @@ class Game:
         else:
             print("Farewell!")
             return
-
-    def win(self, message, starttime):
-        print(message)
-        print(f"Total gametime elapsed: {dt.now() - starttime}")
-        sys.exit()
-    
-    def lose(self, message, starttime): #add playagsain/inventory reset
-        print(message)
-        sys.exit()
-
 
 game = Game()
 game.run()

@@ -6,6 +6,7 @@ import Rooms.Room as Room
 import Rooms.Cell_Start as Cell_Start
 import Rooms.Hallway as Hallway
 import Puzzles.riddle as riddle
+import Game as game
 
 
 class Cell_Two(Room.Room):
@@ -49,6 +50,9 @@ class Cell_Two(Room.Room):
                     win = riddle.read_riddle()
                     if win == True:
                         self.player.insertItem("cell key")
+                    else :
+                        
+                        pass
             if current_item == "torch on the wall":
                 if current_action == "inspect":
                     print("Just a perfectly ordinary every day torch...")

@@ -63,6 +63,7 @@ def play_game() :
                     print('\n')
                 else : # eventually must iterate to this once all instances of a guess have been replaced in the lstUnderScoredName
                     guess_count += 1
+                    print(f'Guess Count: {guess_count}')
                     bContinue2 = False
         UnderScoredName = ''
 
