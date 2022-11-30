@@ -49,11 +49,11 @@ class Cell_Two(Room.Room):
                 if current_action == "wake":
                     win = riddle.read_riddle()
                     if win == True:
+                        print("Gollum gives you a key for your troubles...")
                         self.player.insertItem("cell key")
-                    else:
-                        win_lose.end(
-                            'You were eaten by Gollum and failed to escape the dungeons of Mordor.',
-                            self.starttime)
+                        utils.print_centered_text("*** You got a cell key ***")
+                    else :
+                        win_lose.end('You were eaten by Gollum and failed to escape the dungeons of Mordor.', self.starttime)
             if current_item == "torch on the wall":
                 if current_action == "inspect":
                     print("Just a perfectly ordinary every day torch...")
