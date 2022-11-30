@@ -1,5 +1,10 @@
 # Escape-Mordor
 
+The Mordor IT Department Team
+Tim Larson
+David Thompson
+Chase Rindlisbacher
+
 ## Introduction
 
 Welcome to the Dungeons of Mordor! Your goal is to get out, preferably alive...
