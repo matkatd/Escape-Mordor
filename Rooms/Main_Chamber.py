@@ -105,7 +105,7 @@ class Main_Chamber(Room.Room):
                         print(
                             "Excecutioner: 'You're an escaped prisoner! GUARDS! GUARDS!'"
                         )
-                        win_lose.end(
+                        win_lose.win(
                             'You are captured by the Guards and taken to a maximum security cell, YOU HAVE FAILED TO ESCAPE THE DUNGEONS OF MORDOR!',
                             self.starttime)
             if current_item == "mysterious spiky machine":
