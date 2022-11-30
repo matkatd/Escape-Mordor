@@ -17,7 +17,7 @@ class Hallway(Room.Room):
             "Hallway",
             "You find yourself in the hallway of the cell block. There are many cells, including the gollum's and the your's. At the end of the hallway is the exit, but it appears to be locked.",
             [{
-                "name": "Hallway exit",
+                "name": "hallway exit",
                 "actions": ["inspect", "open"]
             }, {
                 "name": "gollum's cell",
@@ -42,18 +42,19 @@ class Hallway(Room.Room):
         leave = False
         while leave == False:
             [current_item, current_action, item_index] = self.listItems()
+
             if current_item == "hallway exit":
                 if current_action == "inspect":
                     print(
                         "The exit is a large door, the locking mechanism appears to require some sort code..."
                     )
                 if current_action == "open":
-                    if self.player.hallway_cipher:
+                    if self.player.hallway_cipher == True:
                         valid = False
                         while not valid:
                             answer = input(
                                 "Enter the three digit combination: ")
-                            if input == "201":
+                            if answer == "201":
                                 valid = True
                                 start = Main_Chamber.Main_Chamber(
                                     self.player, self.starttime)
@@ -88,16 +89,16 @@ class Hallway(Room.Room):
             if current_item == "rat":
                 if current_action == "say hello":
                     print(
-                        "The rat stares at you with a questioning look, as if it's judging your intelligence\n You feel uncomfortable and walk away."
+                        "The rat stares at you with a questioning look, as if it's judging your intelligence\nYou feel uncomfortable and walk away."
                     )
                 if current_action == "attempt to capture":
                     answer = input(
                         "Are you sure you want to do this? It may have rabies: (Y/N)"
                     )
-                    if capitalize(answer) == "Y":
+                    if answer.upper() == "Y":
                         win_lose.end(
                             "The rat didn't vibe with your feeble attempts to capture it.\nIt bites you.\nAfter a moment, you feel the effects of infection and black out.\nThe end...",
                             self.starttime)
-                    if capitalize(answer) == "N":
+                    if answer.upper() == "N":
                         print(
                             "The rat scurries into another corner of the room")

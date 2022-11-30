@@ -1,8 +1,11 @@
 import Rooms.Cell_Start as Cell_Start
+import Rooms.Hallway as Hallway
 import utils
 from POPO.Player import Player
-from datetime import datetime as dt 
+from datetime import datetime as dt
 import sys
+
+
 class Game:
 
     def run(self):
@@ -20,10 +23,12 @@ class Game:
             player.setName(name)
             starttime = dt.now()
             start = Cell_Start.Cell_Start(player, starttime)
+
             start.start_room()
         else:
             print("Farewell!")
             sys.exit()
+
 
 game = Game()
 game.run()
