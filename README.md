@@ -8,8 +8,8 @@ Keep the world and characters of Middle Earth in mind as you play through, it _m
 ## Running the Game
 
 The game is written entirely in python, so all you'll need is the latest version of python3 installed on your computer.
-To run, download the files and run `Game.py`
-Also, make sure you have imported the following dependencies (preferrably via `pip`):
+To run, download the files and run `python3 Game.py`
+Also, make sure you have imported the following dependencies:
 
 1. `sys`
 2. `random`
