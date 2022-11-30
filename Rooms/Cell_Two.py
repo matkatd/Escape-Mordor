@@ -49,11 +49,11 @@ class Cell_Two(Room.Room):
                 if current_action == "wake":
                     win = riddle.read_riddle()
                     if win == True:
+                        print("Gollum gives you a key for your troubles...")
                         self.player.insertItem("cell key")
-                    else:
-                        win_lose.end(
-                            'You were eaten by Gollum and failed to escape the dungeons of Mordor.',
-                            self.starttime)
+                        utils.print_centered_text("*** You got a cell key ***")
+                    else :
+                        win_lose.end('You were eaten by Gollum and failed to escape the dungeons of Mordor.', self.starttime)
             if current_item == "torch on the wall":
                 if current_action == "inspect":
                     print("Just a perfectly ordinary every day torch...")
@@ -61,10 +61,10 @@ class Cell_Two(Room.Room):
                     print("Nothing happened")
             if current_item == "ragged tapestry":
                 if current_action == "inspect":
-                    pass  #maze clue?
+                    print('It looks like a corner is loose')
                 if current_action == "lift corner":
                     print(
-                        "Upon lifting the tapestry, bemneath you find the following message: 'Not everything is a clue you know...'"
+                        "Upon lifting the tapestry, beneath you find the following message: 'Not everything is a clue you know...'"
                     )
             if current_item == "cell door":
                 if current_action == "open":

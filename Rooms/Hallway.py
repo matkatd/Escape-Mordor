@@ -9,7 +9,21 @@ import Rooms.Main_Chamber as Main_Chamber
 import Puzzles.hallway_cipher as cipher
 import win_lose as win_lose
 
-
+def valid_input(yes_or_no) :
+    bContinue = True 
+    while bContinue == True :
+        try: 
+            if (len(yes_or_no) > 1) or (yes_or_no.isdigit()) or (len(yes_or_no) == 0) :
+                raise Exception()
+            else:
+                if (yes_or_no == 'y') or (yes_or_no == 'n') :
+                    bContinue = False
+                else :
+                    raise Exception()
+        except Exception:
+            yes_or_no = input("Please enter a Y or an N:\n").lower()
+            bContinue = True
+    return yes_or_no
 class Hallway(Room.Room):
 
     def __init__(self, player, starttime):
@@ -81,7 +95,7 @@ class Hallway(Room.Room):
                     start.start_room()
             if current_item == "tapestry":
                 if current_action == "inspect":
-                    print("Maze clue2")
+                    print("Why do you keep inspecting these")
                 if current_action == "lift corner":
                     print(
                         "You find a scrap of what looks to be an orc child's math homework.\nSince you're bored, you decide to solve the first word problem. Gross..."
@@ -101,6 +115,7 @@ class Hallway(Room.Room):
                     answer = input(
                         "Are you sure you want to do this? It may have rabies: (Y/N)"
                     )
+                    answer = valid_input(answer)
                     if answer.upper() == "Y":
                         win_lose.end(
                             "The rat didn't vibe with your feeble attempts to capture it.\nIt bites you.\nAfter a moment, you feel the effects of infection and black out.\nThe end...",
