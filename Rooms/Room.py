@@ -13,13 +13,13 @@ class Room:
     def listActions(self, item_index):
         valid_b = False
         while valid_b == False:
-            print("You can take the following actions: ")
+            print("\nYou can take the following actions: ")
             x = 1
             print(f"0: nothing")
             for action in self.items[item_index]["actions"]:
                 print(f"{x}: {action}")
                 x += 1
-            print("Select the number of the action you would like to take:")
+            print("\nSelect the number of the action you would like to take:")
             try: 
                 action_index = int(input())
                 action_count = len(self.items[item_index]["actions"])
@@ -41,12 +41,12 @@ class Room:
     def listItems(self):
         valid_a = False
         while valid_a == False:
-            print("Notable items in the room include:")
+            print("\nNotable items in the room include:")
             i = 1
             for item in self.items:
                 print(f"{i}: {item['name']}")
                 i += 1
-            print("Select the number of the item you would like to interact with:")
+            print("\nSelect the number of the item you would like to interact with:")
             try:
                 item_index = int(input())
                 item_count = len(self.items)
