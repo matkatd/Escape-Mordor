@@ -50,8 +50,7 @@ class Cell_Two(Room.Room):
                     if win == True:
                         self.player.insertItem("cell key")
                     else :
-                        win_lose.lose('You were eaten by Gollum and failed to escape the dungeons of Mordor.', f'Game Time elapsed: {dt.now() - self.starttime}')
-                        pass
+                        win_lose.end('You were eaten by Gollum and failed to escape the dungeons of Mordor.', self.starttime)
             if current_item == "torch on the wall":
                 if current_action == "inspect":
                     print("Just a perfectly ordinary every day torch...")
