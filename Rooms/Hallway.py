@@ -114,7 +114,7 @@ class Hallway(Room.Room):
                 if current_action == "attempt to capture":
                     answer = input(
                         "Are you sure you want to do this? It may have rabies: (Y/N)\n"
-                    )
+                    ).lower()
                     answer = valid_input(answer)
                     if answer.upper() == "Y":
                         win_lose.end(

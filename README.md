@@ -1,5 +1,10 @@
 # Escape-Mordor
 
+The Mordor IT Department Team
+Tim Larson
+David Thompson
+Chase Rindlisbacher
+
 ## Introduction
 
 Welcome to the Dungeons of Mordor! Your goal is to get out, preferably alive...
@@ -8,8 +13,8 @@ Keep the world and characters of Middle Earth in mind as you play through, it _m
 ## Running the Game
 
 The game is written entirely in python, so all you'll need is the latest version of python3 installed on your computer.
-To run, download the files and run `Game.py`
-Also, make sure you have imported the following dependencies (preferrably via `pip`):
+To run, download the files, navigate into the `Escape-Mordor` directory, and run `python3 Game.py`
+Also, make sure you have imported the following dependencies:
 
 1. `sys`
 2. `random`
