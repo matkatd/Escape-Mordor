@@ -2,7 +2,7 @@ class Player:
 
     def __init__(self):
         self.items = []
-        self.hallway_cipher = True
+        self.hallway_cipher = False
 
     def setName(self, name):
         self.name = name
@@ -12,6 +12,9 @@ class Player:
 
     def insertItem(self, item):
         self.items.append(item)
+
+    def deleteItem(self, item):
+        self.items.pop(item)
 
     def isInItems(self, item):
         if (self.items.count(item) >= 1):

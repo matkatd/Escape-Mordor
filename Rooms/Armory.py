@@ -79,6 +79,8 @@ class Armory(Room.Room):
                     print("Guard: 'I wish I had a drink...'")
                 if current_action == "give drink":
                     if self.player.isInItems("ye olde flask"):
+                        self.player.deleteItem("ye olde flask")
+                        utils.print_centered_text("*** You lost ye olde flask ***")
                         print("Guard: 'Thank you kindly! By the way if you need a weapon from the weapons chest, you need to pull the torches in the torch bracket in the following order: '")
                         print("1. LEFT")
                         print("2. LEFT")
@@ -86,6 +88,8 @@ class Armory(Room.Room):
                         print("4. LEFT")
                         print("5. MIDDLE")
                         print("6. RIGHT")
+                        print('zzZZzz (The guard has gone back to sleep)')
+                        self.items.pop(item_index)
                     else:
                         print("You don't have a drink to give the guard...")
             if current_item == "crossed axes":
