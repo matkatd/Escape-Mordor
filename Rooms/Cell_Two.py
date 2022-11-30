@@ -6,7 +6,7 @@ import Rooms.Room as Room
 import Rooms.Cell_Start as Cell_Start
 import Rooms.Hallway as Hallway
 import Puzzles.riddle as riddle
-import Game as game
+from Game import lose
 
 
 class Cell_Two(Room.Room):
@@ -51,7 +51,7 @@ class Cell_Two(Room.Room):
                     if win == True:
                         self.player.insertItem("cell key")
                     else :
-                        
+                        lose('You were eaten by Gollum and failed to escape the dungeons of Mordor.', f'Game Time elapsed: {dt.now() - self.starttime}')
                         pass
             if current_item == "torch on the wall":
                 if current_action == "inspect":
