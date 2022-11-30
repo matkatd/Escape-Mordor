@@ -39,7 +39,10 @@ class Guards_Room(Room.Room):
                     print("pre-script")
                     win = guards_room_puzzle.fight()
                     if win == True:
-                        print("You have won! For your troubles you have recieved ")
+                        print("You have won! For your troubles you have recieved a master key")
+                        utils.print_centered_text("*** You got the master key ***")
+                        self.player.insertItem("master key")
+                        self.items.pop(item_index)
                     else:
                         pass
             if current_item == "table":
