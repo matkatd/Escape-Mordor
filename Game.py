@@ -1,5 +1,4 @@
-# import Rooms.Cell_Start as Cell_Start
-import Rooms.Armory as Armory
+import Rooms.Cell_Start as Cell_Start
 import utils
 from POPO.Player import Player
 from datetime import datetime as dt 
@@ -20,8 +19,7 @@ class Game:
             player = Player()
             player.setName(name)
             starttime = dt.now()
-            # start = Cell_Start.Cell_Start(player, starttime)
-            start = Armory.Armory(player, starttime)
+            start = Cell_Start.Cell_Start(player, starttime)
             start.start_room()
         else:
             print("Farewell!")
