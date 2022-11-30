@@ -11,7 +11,7 @@ class Armory(Room.Room):
     def __init__(self, player, starttime):
         super().__init__(
             "Armory",
-            "You find yourself in the armory. Against the far wall rests a large weapons chest, above it is a bracket holding three torches. In one corner a sleeping guard rests. To your left hangs a guards uniform. To your right hangs a pair of crossed axes.",
+            "You find yourself in the armory. Against the far wall rests a large weapons chest, above it is a bracket holding three torches. In one corner a sleeping guard rests. To your left hangs a guard's uniform'. To your right hangs a pair of crossed axes.",
             [{
                 "name": "weapons chest",
                 "actions": ["inspect", "open"]
@@ -25,7 +25,7 @@ class Armory(Room.Room):
                 "name": "crossed axes",
                 "actions": ["inspect", "get"]
             }, {
-                "name": "guards uniform",
+                "name": "guard's uniform",
                 "actions": ["inspect", "get"]
             }, {
                 "name": "door back to main chamber",
@@ -95,11 +95,11 @@ class Armory(Room.Room):
                     print("The axes are stuck to the wall...")
             if current_item == "guards uniform":
                 if current_action == "inspect":
-                    print("On the wall hangs a fresh guards uniform...")
+                    print("On the wall hangs a fresh guard's uniform...")
                 if current_action == "get":
-                    self.player.insertItem("guards uniform")
+                    self.player.insertItem("guard's uniform")
                     self.items.pop(item_index)
-                    utils.print_centered_text("*** You got a guards uniform ***")
+                    utils.print_centered_text("*** You got a guard's uniform ***")
             if current_item == "door back to main chamber":
                 if current_action == "exit":
                     start = Main_Chamber.Main_Chamber(self.player, self.starttime)
