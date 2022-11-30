@@ -95,7 +95,7 @@ class Hallway(Room.Room):
                     start.start_room()
             if current_item == "tapestry":
                 if current_action == "inspect":
-                    print("Maze clue2")
+                    print("Why do you keep inspecting these")
                 if current_action == "lift corner":
                     print(
                         "You find a scrap of what looks to be an orc child's math homework.\nSince you're bored, you decide to solve the first word problem. Gross..."
