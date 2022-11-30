@@ -8,7 +8,7 @@ Keep the world and characters of Middle Earth in mind as you play through, it _m
 ## Running the Game
 
 The game is written entirely in python, so all you'll need is the latest version of python3 installed on your computer.
-To run, download the files and run `python3 Game.py`
+To run, download the files, navigate into the `Escape-Mordor` directory, and run `python3 Game.py`
 Also, make sure you have imported the following dependencies:
 
 1. `sys`
