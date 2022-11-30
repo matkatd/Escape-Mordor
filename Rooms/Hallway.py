@@ -80,6 +80,9 @@ class Hallway(Room.Room):
                 if current_action == "inspect":
                     print("Maze clue2")
                 if current_action == "lift corner":
+                    print(
+                        "You find a scrap of what looks to be an orc child's math homework.\nSince you're bored, you decide to solve the first word problem. Gross..."
+                    )
                     win = cipher.cipher_solver()
                     if win:
                         self.player.hallway_cipher = True
