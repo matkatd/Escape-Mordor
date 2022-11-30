@@ -1,6 +1,17 @@
 import random
 
 
+def valid_answer(response):
+    bContinue = False
+    while bContinue == False:
+        try:
+            response = int(response)
+            bContinue = True
+        except:
+            response = input('Please enter a valid integer as your answer.\n')
+    return response
+
+
 class Fight():
 
     def __init__(self):
@@ -21,6 +32,7 @@ class Fight():
             self.printOptions()
             selectedMoveIndex = input(
                 "Select the number of the move you would like to use: ")
+            selectedMoveIndex = valid_answer(selectedMoveIndex)
             selectedMove = self.playerMoves[int(selectedMoveIndex) - 1]
             captainMove = self.getCaptainMove()
 
