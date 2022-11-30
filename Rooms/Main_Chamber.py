@@ -57,7 +57,7 @@ class Main_Chamber(Room.Room):
                     start.start_room()
             if current_item == "guard's room door":
                 if current_action == "open":
-                    if self.player.IsInItems(""):
+                    if self.player.IsInItems("guard's uniform"):
                         start = Guards_Room.Guards_Room(self.player, self.starttime)
                         start.start_room()
                     else:
