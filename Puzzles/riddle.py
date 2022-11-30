@@ -52,6 +52,5 @@ def read_riddle():
     ]
     riddles_answers = ["mountain", "wind", "dark", "fish", "time"]
     print(riddles[riddles_index])
-    valid = False
     return answer_riddle(riddles_answers[riddles_index])
 
