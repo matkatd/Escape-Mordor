@@ -1,11 +1,13 @@
 #standard imports
-from datetime import datetime as dt 
+from datetime import datetime as dt
 import utils
 import Rooms.Room as Room
 #room specific imports
 # import Game as Game
 import Rooms.Cell_Two as Cell_Two
 import Rooms.Hallway as Hallway
+import win_lose as win_lose
+
 
 class Cell_Start(Room.Room):
 
@@ -48,7 +50,8 @@ class Cell_Start(Room.Room):
                 if current_action == "inspect":
                     print("Just a perfectly ordinary every day torch...")
                 if current_action == "pull torch":
-                    print("A secret passage has apeared!")
+                    utils.print_centered_text(
+                        "***A secret passage has apeared!***")
                     self.items.append({
                         "name": "secret passage",
                         "actions": ["exit"]
@@ -59,13 +62,13 @@ class Cell_Start(Room.Room):
                         "A old flask lies upon a table, the liquid inside is murky and mysterious..."
                     )
                 if current_action == "drink":
-                    # start = Game.Game()
-                    # start.lose("You begin too feel woozy and suddenly you fall to the floor, darkness fills your vision...", self.starttime)
-                    self.items.pop(item_index)
+                    win_lose.end(
+                        "You begin too feel woozy and suddenly you fall to the floor, darkness fills your vision...",
+                        self.starttime)
                 if current_action == "get":
-                    print(f"You got {current_item}")
                     self.items.pop(item_index)
                     self.player.insertItem(current_item)
+                    utils.print_centered_text("*** You got ye olde flask ***")
             if current_item == "cell door":
                 if current_action == "open":
                     if self.player.isInItems("cell key"):
@@ -75,7 +78,9 @@ class Cell_Start(Room.Room):
                         start = Hallway.Hallway(self.player, self.starttime)
                         start.start_room()
                     else:
-                        print("Your cell door is locked, maybe if you had a key...")
+                        print(
+                            "Your cell door is locked, maybe if you had a key..."
+                        )
             if current_item == "secret passage" and current_action == "exit":
                 start = Cell_Two.Cell_Two(self.player, self.starttime)
                 start.start_room()
