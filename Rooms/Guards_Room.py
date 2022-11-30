@@ -53,7 +53,8 @@ class Guards_Room(Room.Room):
                 if current_action == "talk":
                     if self.player.isInItems("sword"):
                         print("Guard Captain: 'You want to go outside? For that you would need the master key, and only the guard captain may hold the master key. WHAT! YOU DARE CHALLENGE ME! Prepare yourself!'")
-                        win = guards_room_puzzle.fight()
+                        fight = guards_room_puzzle.Fight()
+                        win = fight.start()
                         if win == True:
                             print("You have won! On the guard captain's body you find the master key!")
                             utils.print_centered_text("*** You got the master key ***")
