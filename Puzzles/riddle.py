@@ -38,6 +38,9 @@ def answer_riddle(solution):
     return bWin
 
 def read_riddle():
+    print('The prisoner wakes violently gurgling out the name, "Gollum! Gollum!"')
+    print("After you've asked him about a way out, he agrees to give you a key \nhe nicked from the guards awhile back if you beat him in a game of riddles")
+    print("If you lose, he says he'll eat you. You agree hesitantly.")
     riddles_index = random.randint(0, 4)
 
     riddles = [
