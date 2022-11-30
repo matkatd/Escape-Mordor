@@ -60,6 +60,8 @@ class Main_Chamber(Room.Room):
                     if self.player.IsInItems(""):
                         start = Guards_Room.Guards_Room(self.player, self.starttime)
                         start.start_room()
+                    else:
+                        win_lose.end('Upon seeing a free prisoner entering the guards room, the guard captain orders you be incarcerated in a maximum security cell. YOU HAVE FAILED TO ESCAPE THE DUNGEONS OF MORDOR!', self.starttime)
             if current_item == "door to outside":
                 if current_action == "open":
                     if self.player.isInItems("master key"):
