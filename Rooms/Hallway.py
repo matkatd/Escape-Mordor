@@ -59,7 +59,7 @@ class Hallway(Room.Room):
                                     self.player, self.starttime)
                                 start.start_room()
                             else :
-                                answer = input('Incorrect, try again! Enter the three digit combination:\n')
+                                answer = input('Incorrect, try again!\nEnter the three digit combination:\n')
 
                     else:
                         print(
