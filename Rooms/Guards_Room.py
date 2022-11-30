@@ -5,14 +5,21 @@ import Rooms.Room as Room
 #room specific imports
 import Rooms.Main_Chamber as Main_Chamber
 import Puzzles.guards_room_puzzle as guards_room_puzzle
+import win_lose as win_lose
 
 class Guards_Room(Room.Room):
 
     def __init__(self, player, starttime):
         super().__init__(
             "Guards Room",
-            "You find yourself in the guards quarters...",
+            "You find yourself in the guards quarters. The room contains several cots for tired guards. On one cot the guard captain reclines. In one corner there is a table with a strange orb. Besides that the room is sparsly furnished.",
             [{
+                "name": "mysterious orb",
+                "actions": ["inspect"]
+            }, {
+                "name": "empty cot",
+                "actions": ["inspect", "rest"]
+            }, {
                 "name": "guard captain",
                 "actions": ["inspect","talk"]
             }, {
@@ -32,19 +39,30 @@ class Guards_Room(Room.Room):
         leave = False
         while leave == False:
             [current_item, current_action, item_index] = self.listItems()
+            if current_item == "mysterious orb":
+                if current_action == "inspect":
+                    win_lose.end("Oh no that orb was a palantir, the visions it shows you temprorarly drive you mad, when you awake you are back in your cell. YOU HAVE FAILED TO ESCAPE THE DUNGEONS OF MORDOR", self.starttime)
+            if current_item == "empty cot":
+                if current_action == "inspect":
+                    print("A pillow and a blanket! Looks comfy!")
+                if current_action == "rest":
+                    print("zZzZz\nzZzZz\nzZzzZz\nVery restful!")
             if current_item == "guard captain":
                 if current_action == "inspect":
-                    print("")
+                    print("He looks fairly compotent, on one hip rests his sword...")
                 if current_action == "talk":
-                    print("pre-script")
-                    win = guards_room_puzzle.fight()
-                    if win == True:
-                        print("You have won! For your troubles you have recieved a master key")
-                        utils.print_centered_text("*** You got the master key ***")
-                        self.player.insertItem("master key")
-                        self.items.pop(item_index)
+                    if self.player.isInItems("sword"):
+                        print("Guard Captain: 'You want to go outside? For that you would need the master key, and only the guard captain may hold the master key. WHAT! YOU DARE CHALLENGE ME! Prepare yourself!'")
+                        win = guards_room_puzzle.fight()
+                        if win == True:
+                            print("You have won! On the guard captain's body you find the master key!")
+                            utils.print_centered_text("*** You got the master key ***")
+                            self.player.insertItem("master key")
+                            self.items.pop(item_index)
+                        else:
+                            win_lose.end("The guard captain defeats you. YOU HAVE FAILED TO ESCAPE THE DUNGEONS OF MORDOR!", self.starttime)
                     else:
-                        pass
+                        win_lose.end("You challenged the captain of the guard without a weapon, he runs you through instantly. YOU HAVE FAILED TO ESCAPE THE DUNGEONS OF MORDOR!", self.starttime)
             if current_item == "table":
                 if current_action == "move":
                     print("The table is too heavy to move, this is why we don't skip leg day..")
