@@ -33,6 +33,9 @@ class Main_Chamber(Room.Room):
             }, {
                 "name": "executioner",
                 "actions":["inspect", "talk"]
+            }, {
+                "name": "mysterious spiky machine",
+                "actions":["inspect", "pull lever"]
             }], player, starttime)
 
     def start_room(self):
@@ -82,3 +85,8 @@ class Main_Chamber(Room.Room):
                     else:
                         print("Excecutioner: 'You're an escaped prisoner! GUARDS! GUARDS!'")
                         win_lose.end('You are captured by the Guards and taken to a maximum security cell, YOU HAVE FAILED TO ESCAPE THE DUNGEONS OF MORDOR!', self.starttime)
+            if current_item == "mysterious spiky machine":
+                if current_action == "inspect":
+                    print("Just your average every day spiky machine, for...spiking things?")
+                if current_action == "pull lever":
+                    print("Nothing happened...wait...yeah nothing happend...")
