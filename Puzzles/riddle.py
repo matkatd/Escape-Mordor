@@ -52,7 +52,3 @@ def read_riddle():
     valid = False
     return answer_riddle(riddles_answers[riddles_index])
 
-
-result = read_riddle()
-print(result)
-
