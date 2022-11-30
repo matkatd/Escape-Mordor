@@ -51,14 +51,15 @@ class Hallway(Room.Room):
                 if current_action == "open":
                     if self.player.hallway_cipher == True:
                         valid = False
+                        answer = input("Enter the three digit combination:\n")
                         while not valid:
-                            answer = input(
-                                "Enter the three digit combination: ")
                             if answer == "201":
                                 valid = True
                                 start = Main_Chamber.Main_Chamber(
                                     self.player, self.starttime)
                                 start.start_room()
+                            else :
+                                answer = input('Incorrect, try again!\nEnter the three digit combination:\n')
 
                     else:
                         print(
