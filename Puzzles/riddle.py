@@ -34,7 +34,7 @@ def answer_riddle(solution):
                 print(f'\nNope, try again\n(You have {guesses_remaining} guesses remaining)')
         else :
             print("Yay! Gollum was hungry, you'll do!")
-            continue  
+            bContinue = False
     return bWin
 
 def read_riddle():
