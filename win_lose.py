@@ -1,11 +1,13 @@
 import sys
 from datetime import datetime as dt
 
+
 def end(message, starttime):
     print(message)
     print(f"Total gametime elapsed: {dt.now() - starttime}")
     sys.exit()
-    
+
+
 def win(message, starttime):
     print(message)
     current_score = dt.now() - starttime
@@ -19,12 +21,14 @@ def win(message, starttime):
             if old_score == current_score:
                 print(f"You matched your best score of {old_score}")
             elif old_score > current_score:
-                print(f"Oooo you missed beating your best score of {old_score}")
+                print(
+                    f"Oooo you missed beating your best score of {old_score}")
             else:
                 print(f"Congrats of beating your best score of {old_score}")
                 use_file.write(str(current_score))
-        return
+    return
+
 
 start = dt.now()
-win("You won",start)
+win("You won", start)
 sys.exit()
