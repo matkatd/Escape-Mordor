@@ -6,6 +6,7 @@ import Rooms.Room as Room
 # import Game as Game
 import Rooms.Cell_Two as Cell_Two
 import Rooms.Hallway as Hallway
+import win_lose as win_lose
 
 class Cell_Start(Room.Room):
 
@@ -59,13 +60,11 @@ class Cell_Start(Room.Room):
                         "A old flask lies upon a table, the liquid inside is murky and mysterious..."
                     )
                 if current_action == "drink":
-                    # start = Game.Game()
-                    # start.lose("You begin too feel woozy and suddenly you fall to the floor, darkness fills your vision...", self.starttime)
-                    self.items.pop(item_index)
+                    win_lose.end("You begin too feel woozy and suddenly you fall to the floor, darkness fills your vision...", self.starttime)
                 if current_action == "get":
-                    print(f"You got {current_item}")
                     self.items.pop(item_index)
                     self.player.insertItem(current_item)
+                    utils.print_centered_text("*** You got ye olde flask ***""")
             if current_item == "cell door":
                 if current_action == "open":
                     if self.player.isInItems("cell key"):
