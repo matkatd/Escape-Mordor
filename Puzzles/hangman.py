@@ -20,7 +20,7 @@ lotrNames = ["aragorn", "frodo", "baggins", "elrond", "gandalf","galadriel", "sa
 def play_game() :
     bWin = False
     guess_count = 0
-    print("Excecutioner: 'You have 12 guesses to win this hangman style game. Good luck!'\n")
+    print("'You have 12 guesses to win this hangman style game. Good luck!'\n")
     iRanNum = random.randint(0,7) # randomly selects a position to use as the index
     # selects the random song
     RandomName = lotrNames[iRanNum]
@@ -78,6 +78,3 @@ def play_game() :
             print("You took too many guesses!")
             bContinue1 = False
     return bWin
-        
-play_game()
-        

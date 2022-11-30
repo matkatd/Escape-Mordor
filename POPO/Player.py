@@ -2,6 +2,7 @@ class Player:
 
     def __init__(self):
         self.items = []
+        self.hallway_cipher = False
 
     def setName(self, name):
         self.name = name
