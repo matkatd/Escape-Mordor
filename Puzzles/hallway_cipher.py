@@ -34,5 +34,3 @@ def cipher_solver() :
     cipher2 = check_solution(1,response)
     print(f'\nThe solutions were {cipher1} and {cipher2}\nI have a feeling those numbers may be important.')
     return bComplete
-
-cipher_solver()
