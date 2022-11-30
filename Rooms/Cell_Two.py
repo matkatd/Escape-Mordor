@@ -43,7 +43,7 @@ class Cell_Two(Room.Room):
             if current_item == "sleeping prisoner":
                 if current_action == "inspect":
                     print(
-                        "This prisoner appears to be quite well fed, their sleep is quite peaceful..."
+                        "This prisoner appears to be quite under fed, their sleep is quite peaceful..."
                     )
                 if current_action == "wake":
                     win = riddle.read_riddle()
